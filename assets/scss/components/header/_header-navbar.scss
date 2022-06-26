@@ -2,6 +2,8 @@
 @use "../../mixins" as *;
 
 .header-navbar {
+  letter-spacing: 0.1em;
+
   &__btn {
     display: none;
   }
@@ -9,7 +11,7 @@
   &__list {
     display: flex;
     justify-content: flex-end;
-    @include unlist;
+    @include unlist(0 (-$gap) 0 0);
   }
 
   &__item {
@@ -20,6 +22,7 @@
     display: block;
     padding: $gap $gap-sm;
     transition: color 0.5s;
+    font-size: 1.125rem;
 
     &:hover,
     &:focus {
