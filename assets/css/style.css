@@ -361,17 +361,25 @@ a {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  min-width: 250px;
   height: 60px;
   border: 2px solid #ffffff;
   padding: 0.5em 1em;
-  background-color: rgba(255, 255, 255, 0.1);
   font-size: 1.125rem;
   letter-spacing: 0.1em;
 }
 .btn :hover,
 .btn :focus {
   background-color: #d66926;
+}
+
+.btn--light {
+  min-width: 250px;
+  background-color: rgba(255, 255, 255, 0.1);
+}
+
+.btn--primary {
+  min-width: 350px;
+  background-color: rgba(45, 54, 81, 0.8);
 }
 
 .header {
@@ -466,7 +474,6 @@ a {
 .header-content {
   position: relative;
   z-index: 1;
-  width: 100%;
 }
 .header-content__title {
   margin: 0 0 53px;
@@ -480,4 +487,52 @@ a {
       -ms-flex-pack: center;
           justify-content: center;
   gap: 20px;
+}
+
+.skills__container {
+  display: grid;
+  gap: 10px;
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-areas: "a1 a1 a2 a3" "a4 a5 a5 a6" "a7 a8 a9 a6";
+  padding: 10px;
+}
+
+.skill-item {
+  background-color: red;
+}
+
+.skill-item:nth-last-of-type(1) {
+  grid-area: a1;
+}
+
+.skill-item:nth-last-of-type(2) {
+  grid-area: a2;
+}
+
+.skill-item:nth-last-of-type(3) {
+  grid-area: a3;
+}
+
+.skill-item:nth-last-of-type(4) {
+  grid-area: a4;
+}
+
+.skill-item:nth-last-of-type(5) {
+  grid-area: a5;
+}
+
+.skill-item:nth-last-of-type(6) {
+  grid-area: a6;
+}
+
+.skill-item:nth-last-of-type(7) {
+  grid-area: a7;
+}
+
+.skill-item:nth-last-of-type(8) {
+  grid-area: a8;
+}
+
+.skill-item:nth-last-of-type(9) {
+  grid-area: a9;
 }
