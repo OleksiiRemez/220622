@@ -1,17 +1,83 @@
-@use "../../../presets" as *;
 @use "../../../mixins" as *;
+@use "../../../presets" as *;
 
 .skills {
+  letter-spacing: 0.055em;
+  width: 100%;
 
-  &__container{
+  &__container {
     display: grid;
     gap: $gap-sm;
-    grid-template-columns: repeat(4, 1fr);
-    grid-template-areas: "a1 a1 a2 a3" "a4 a5 a5 a6" "a7 a8 a9 a6";
 
+    @include lg-min {
+      grid-template-areas:
+        "i1 i1 i2 i3"
+        "i4 i5 i5 i6"
+        "i7 i8 i9 i6";
+    }
+
+    @include lg-md {
+      grid-template-areas:
+        "i1 i1 i2"
+        "i3 i4 i4"
+        "i5 i5 i6"
+        "i7 i8 i6"
+        "i7 i9 i9";
+    }
+
+    @include md-sm {
+      grid-template-areas:
+        "i1 i2"
+        "i3 i2"
+        "i4 i4"
+        "i5 i6"
+        "i5 i7"
+        "i8 i9";
+    }
+
+    @include sm {
+      grid-template-areas:
+        "i1"
+        "i2"
+        "i3"
+        "i4"
+        "i5"
+        "i6"
+        "i7"
+        "i8"
+        "i9";
+      padding: 0 0 $gap 0;
+      gap: $gap;
+    }
+
+    @include sm-min {
+      gap: $gap-sm;
+      padding-bottom: $gap;
+    }
+
+    @media screen and (min-height: 691px) {
+      grid-auto-rows: calc(100vh / 3 - $gap-sm * 4 / 3);
+    }
+
+    @media screen and (max-height: 690px) {
+      grid-auto-rows: calc(220px + $gap-sm * 4 / 3);
+    }
+  }
+
+  &__action {
+    display: flex;
+    justify-content: center;
+
+    @include md-min {
+      margin-bottom: $gap-lg;
+    }
+  }
+
+  @include sm-min {
     padding: $gap-sm;
   }
 
-  // &__actions {
-  // }
+  @include sm {
+    padding: $gap;
+  }
 }

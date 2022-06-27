@@ -1,32 +1,92 @@
-@use "../../presets" as *;
 @use "../../mixins" as *;
+@use "../../presets" as *;
 
-.header-navbar {
-  letter-spacing: 0.1em;
+.navbar-toggle {
+  display: none;
+  margin-left: 0;
 
-  &__btn {
-    display: none;
+  &__stroke {
+    fill: $color-light;
   }
 
-  &__list {
+  @include md {
+    display: inline-block;
+    cursor: pointer;
+    height: 100%;
+  }
+}
+
+.header-navlist {
+  @include unlist;
+  letter-spacing: 0.1rem;
+  height: 100%;
+  font-size: 1.125rem;
+
+  @include md-min {
+    gap: $gap-x2;
+    flex-direction: row;
+    justify-content: space-between;
     display: flex;
-    justify-content: flex-end;
-    @include unlist(0 (-$gap) 0 0);
+    align-items: center;
+    justify-content: center;
+  }
+
+  @include md {
+    position: absolute;
+    display: block;
+    right: $gap;
+    top: 100%;
+    background-color: rgba($color-gray-dark, 0.9);
+    height: 0;
+    overflow: hidden;
+    box-shadow: -3px 3px 20px -10px black;
+    transition: height $transiton-speed * 2;
+
+    &__item {
+      text-align: right;
+      margin: $gap $gap-sm;
+
+      a {
+        padding: $gap-sm $gap;
+        display: block;
+      }
+    }
   }
 
   &__item {
-    margin: $gap $gap-sm;
-  }
+    transition: color $transiton-speed;
 
-  &__link {
-    display: block;
-    padding: $gap $gap-sm;
-    transition: color 0.5s;
-    font-size: 1.125rem;
+    a {
+      color: inherit;
+    }
 
-    &:hover,
-    &:focus {
+    &:hover {
+      cursor: pointer;
       color: $color-accent;
     }
   }
+}
+
+.navbar-toggle__stroke {
+  transition: transform $transiton-speed;
+  transform-box: fill-box;
+  transform-origin: center;
+
+  .active & {
+    &--1 {
+      transform: rotate(45deg) translate(20%, 270%);
+    }
+
+    &--2 {
+      transform: translateX(-110%);
+    }
+
+    &--3 {
+      transform: rotate(-45deg) translate(20%, -270%);
+    }
+  }
+}
+
+.active.header-navlist {
+  height: 203px;
 }
