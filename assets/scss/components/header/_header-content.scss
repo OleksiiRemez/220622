@@ -2,31 +2,31 @@
 @use "../../mixins" as *;
 
 .header-content {
-    @include abs-position;
+  @include abs-position;
+  display: flex;
+  justify-content: center;
+  background-image: url("../img/img-header.png");
+  background-position: center;
+  background-size: cover;
+
+  &__container {
+    z-index: 1;
+    @extend %container;
+  }
+
+  &__title {
+    text-align: center;
+  }
+
+  &__actions {
     display: flex;
     justify-content: center;
-    background-image: url("../img/img-header.png");
-    background-position: center;
-    background-size: cover;
+    width: 100%;
+    gap: $gap;
 
-    &__container {
-        z-index: 1;
-        @extend %container;
+    @include md {
+      flex-direction: column;
+      align-items: center;
     }
-
-    &__title {
-        text-align: center;
-    }
-
-    &__actions {
-        display: flex;
-        justify-content: center;
-        width: 100%;
-        gap: $gap;
-
-        @include md {
-            flex-direction: column;
-            align-items: center;
-        }
-    }
+  }
 }

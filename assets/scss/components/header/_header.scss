@@ -2,16 +2,16 @@
 @use "../../mixins" as *;
 
 .header {
-    position: relative;
-    display: flex;
-    align-content: center;
-    min-height: 100vh;
-    width: 100%;
-    color: $color-light;
+  position: relative;
+  display: flex;
+  align-content: center;
+  min-height: 100vh;
+  width: 100%;
+  color: $color-light;
 
-    &-overlay {
-        @include abs-position;
-        background-color: $color-primary;
-        opacity: 0.8;
-    }
+  &-overlay {
+    @include abs-position;
+    background-color: $color-primary;
+    opacity: 0.8;
+  }
 }
